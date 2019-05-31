@@ -1,5 +1,6 @@
 package com.cuiguo.shopping
 
+
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
