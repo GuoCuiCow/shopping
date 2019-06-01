@@ -14,18 +14,23 @@
 -->
         <id property="id" column="id"/>
         <result property="phone" column="phone"/>
+        <result property="password" column="password"/>
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
-        <result property="name" column="name"/>
+        <result property="username" column="username"/>
     </resultMap>
 
     <!-- 用户信息 -->
-    <select id="detail" resultMap="UserMapper">
-      select phone, name, create_time, update_time from t_user where id = #{id}
+    <select id="getAll" resultMap="UserMapper">
+      SELECT * FROM users
     </select>
 
-    <!-- 删除产品 -->
-    <delete id="delete">
-        delete from t_user where id = #{id}
-    </delete>
+    <!-- 用户名找用户信息 -->
+    <select id="findByUserName">
+        SELECT * FROM USER WHERE USERNAME = #{username}
+    </select>
+    <!-- 创建 -->
+    <insert id="insert">
+        INSERT INTO USER(USERNAME, PASSWORD) VALUES(#{username}, #{password})
+    </insert>
 </mapper>

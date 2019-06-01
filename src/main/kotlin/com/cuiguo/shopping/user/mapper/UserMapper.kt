@@ -5,12 +5,11 @@ import org.apache.ibatis.annotations.*
 
 @Mapper
 interface UserMapper {
-//    @Select("SELECT * FROM users")
+
     fun getAll(): List<User>
 
-//    @Select("SELECT * FROM USER WHERE USERNAME = #{username}")
     fun findByUserName(@Param("username") username: String): List<User>
 
-//    @Insert("INSERT INTO USER(USERNAME, PASSWORD) VALUES(#{username}, #{password})")
-    fun insert(@Param("username") username: String, @Param("password") password: String): Int
+    @Insert("INSERT INTO user(username,password) VALUES(#{username}, #{password}")
+    fun insert(username: String,password: String): Int
 }
