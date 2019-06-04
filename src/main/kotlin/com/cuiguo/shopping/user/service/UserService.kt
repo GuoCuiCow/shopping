@@ -12,7 +12,7 @@ class UserService {
     @Autowired
     lateinit var userMapper: UserMapper
 
-    fun save(username: String,password : String){
-        userMapper.insert(username, password)
+    fun save(username: String,password : String):Int{
+        return userMapper.insert(username, password)
     }
 }
